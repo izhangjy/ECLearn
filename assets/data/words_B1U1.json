@@ -1,0 +1,243 @@
+[
+  {
+    "id": "w001",
+    "word": "teenage",
+    "phonetic": "/ˈtiːneɪdʒ/",
+    "meanings": [{"pos": "adj.", "def": "青少年的；十几岁的"}],
+    "example": "She became a teenage mother at 16.",
+    "exampleCn": "她16岁就成了少女妈妈。",
+    "derivatives": ["teenager", "teens"],
+    "unitId": "B1U1",
+    "frequency": "高频"
+  },
+  {
+    "id": "w002",
+    "word": "volunteer",
+    "phonetic": "/ˌvɒlənˈtɪə(r)/",
+    "meanings": [
+      {"pos": "n.", "def": "志愿者"},
+      {"pos": "vi.", "def": "自愿做；义务做"}
+    ],
+    "example": "She volunteers at a local hospital.",
+    "exampleCn": "她在当地医院做志愿者。",
+    "derivatives": ["voluntary", "voluntarily"],
+    "unitId": "B1U1",
+    "frequency": "高频"
+  },
+  {
+    "id": "w003",
+    "word": "debate",
+    "phonetic": "/dɪˈbeɪt/",
+    "meanings": [
+      {"pos": "n.", "def": "辩论；争论"},
+      {"pos": "v.", "def": "辩论；讨论"}
+    ],
+    "example": "There was a heated debate about the new policy.",
+    "exampleCn": "关于新政策有一场激烈的辩论。",
+    "derivatives": ["debatable", "debater"],
+    "unitId": "B1U1",
+    "frequency": "高频"
+  },
+  {
+    "id": "w004",
+    "word": "prefer",
+    "phonetic": "/prɪˈfɜː(r)/",
+    "meanings": [{"pos": "vt.", "def": "更喜欢；宁愿"}],
+    "example": "I prefer tea to coffee.",
+    "exampleCn": "比起咖啡，我更喜欢茶。",
+    "derivatives": ["preference", "preferable", "preferably"],
+    "unitId": "B1U1",
+    "frequency": "高频"
+  },
+  {
+    "id": "w005",
+    "word": "content",
+    "phonetic": "/ˈkɒntent/",
+    "meanings": [
+      {"pos": "n.", "def": "内容；目录"},
+      {"pos": "adj.", "def": "满意的；满足的"}
+    ],
+    "example": "The content of the book is very interesting.",
+    "exampleCn": "这本书的内容非常有趣。",
+    "derivatives": ["contented", "contentment"],
+    "unitId": "B1U1",
+    "frequency": "高频"
+  },
+  {
+    "id": "w006",
+    "word": "movement",
+    "phonetic": "/ˈmuːvmənt/",
+    "meanings": [{"pos": "n.", "def": "运动；移动；活动"}],
+    "example": "The women's movement fought for equal rights.",
+    "exampleCn": "妇女运动为争取平等权利而斗争。",
+    "derivatives": ["move", "movable"],
+    "unitId": "B1U1",
+    "frequency": "高频"
+  },
+  {
+    "id": "w007",
+    "word": "greenhouse",
+    "phonetic": "/ˈɡriːnhaʊs/",
+    "meanings": [{"pos": "n.", "def": "温室；暖房"}],
+    "example": "The greenhouse effect is causing global warming.",
+    "exampleCn": "温室效应正在导致全球变暖。",
+    "derivatives": [],
+    "unitId": "B1U1",
+    "frequency": "中频"
+  },
+  {
+    "id": "w008",
+    "word": "suitable",
+    "phonetic": "/ˈsuːtəbl/",
+    "meanings": [{"pos": "adj.", "def": "合适的；适当的"}],
+    "example": "This movie is not suitable for children.",
+    "exampleCn": "这部电影不适合儿童观看。",
+    "derivatives": ["suit", "suitably", "suitability"],
+    "unitId": "B1U1",
+    "frequency": "高频"
+  },
+  {
+    "id": "w009",
+    "word": "actually",
+    "phonetic": "/ˈæktʃuəli/",
+    "meanings": [{"pos": "adv.", "def": "实际上；事实上"}],
+    "example": "Actually, I don't agree with you.",
+    "exampleCn": "实际上，我不同意你的看法。",
+    "derivatives": ["actual"],
+    "unitId": "B1U1",
+    "frequency": "高频"
+  },
+  {
+    "id": "w010",
+    "word": "challenge",
+    "phonetic": "/ˈtʃælɪndʒ/",
+    "meanings": [
+      {"pos": "n.", "def": "挑战；质疑"},
+      {"pos": "vt.", "def": "向...挑战"}
+    ],
+    "example": "Learning a new language is a big challenge.",
+    "exampleCn": "学习一门新语言是一个很大的挑战。",
+    "derivatives": ["challenging", "challenger"],
+    "unitId": "B1U1",
+    "frequency": "高频"
+  },
+  {
+    "id": "w011",
+    "word": "title",
+    "phonetic": "/ˈtaɪtl/",
+    "meanings": [
+      {"pos": "n.", "def": "标题；头衔；称号"},
+      {"pos": "vt.", "def": "给...加标题"}
+    ],
+    "example": "What's the title of the book?",
+    "exampleCn": "这本书的标题是什么？",
+    "derivatives": ["titled", "subtitle"],
+    "unitId": "B1U1",
+    "frequency": "高频"
+  },
+  {
+    "id": "w012",
+    "word": "topic",
+    "phonetic": "/ˈtɒpɪk/",
+    "meanings": [{"pos": "n.", "def": "话题；主题"}],
+    "example": "Let's change the topic.",
+    "exampleCn": "我们换个话题吧。",
+    "derivatives": ["topical"],
+    "unitId": "B1U1",
+    "frequency": "高频"
+  },
+  {
+    "id": "w013",
+    "word": "freshman",
+    "phonetic": "/ˈfreʃmən/",
+    "meanings": [{"pos": "n.", "def": "（大学或高中）一年级学生"}],
+    "example": "He is a freshman at Harvard University.",
+    "exampleCn": "他是哈佛大学的大一新生。",
+    "derivatives": [],
+    "unitId": "B1U1",
+    "frequency": "中频"
+  },
+  {
+    "id": "w014",
+    "word": "confuse",
+    "phonetic": "/kənˈfjuːz/",
+    "meanings": [{"pos": "vt.", "def": "使困惑；使混淆"}],
+    "example": "Don't confuse me with too much information.",
+    "exampleCn": "不要用太多信息把我弄糊涂了。",
+    "derivatives": ["confused", "confusing", "confusion"],
+    "unitId": "B1U1",
+    "frequency": "高频"
+  },
+  {
+    "id": "w015",
+    "word": "fluent",
+    "phonetic": "/ˈfluːənt/",
+    "meanings": [{"pos": "adj.", "def": "流利的；流畅的"}],
+    "example": "She speaks fluent English.",
+    "exampleCn": "她说一口流利的英语。",
+    "derivatives": ["fluently", "fluency"],
+    "unitId": "B1U1",
+    "frequency": "高频"
+  },
+  {
+    "id": "w016",
+    "word": "graduate",
+    "phonetic": "/ˈɡrædʒuət/",
+    "meanings": [
+      {"pos": "vi.", "def": "毕业"},
+      {"pos": "n.", "def": "毕业生"}
+    ],
+    "example": "She graduated from Beijing University.",
+    "exampleCn": "她毕业于北京大学。",
+    "derivatives": ["graduation", "undergraduate", "postgraduate"],
+    "unitId": "B1U1",
+    "frequency": "高频"
+  },
+  {
+    "id": "w017",
+    "word": "recommend",
+    "phonetic": "/ˌrekəˈmend/",
+    "meanings": [{"pos": "vt.", "def": "推荐；建议"}],
+    "example": "I recommend this book to you.",
+    "exampleCn": "我向你推荐这本书。",
+    "derivatives": ["recommendation"],
+    "unitId": "B1U1",
+    "frequency": "高频"
+  },
+  {
+    "id": "w018",
+    "word": "advanced",
+    "phonetic": "/ədˈvɑːnst/",
+    "meanings": [{"pos": "adj.", "def": "高级的；先进的"}],
+    "example": "This is an advanced English course.",
+    "exampleCn": "这是一门高级英语课程。",
+    "derivatives": ["advance", "advancement"],
+    "unitId": "B1U1",
+    "frequency": "高频"
+  },
+  {
+    "id": "w019",
+    "word": "literature",
+    "phonetic": "/ˈlɪtrətʃə(r)/",
+    "meanings": [{"pos": "n.", "def": "文学；文学作品"}],
+    "example": "She studied English literature at university.",
+    "exampleCn": "她在大学学习英国文学。",
+    "derivatives": ["literary", "literate"],
+    "unitId": "B1U1",
+    "frequency": "高频"
+  },
+  {
+    "id": "w020",
+    "word": "extra",
+    "phonetic": "/ˈekstrə/",
+    "meanings": [
+      {"pos": "adj.", "def": "额外的；附加的"},
+      {"pos": "adv.", "def": "特别地；格外"}
+    ],
+    "example": "I need some extra time to finish the work.",
+    "exampleCn": "我需要一些额外的时间来完成这项工作。",
+    "derivatives": [],
+    "unitId": "B1U1",
+    "frequency": "高频"
+  }
+]
