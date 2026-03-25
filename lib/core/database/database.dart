@@ -161,6 +161,9 @@ class AppDatabase extends _$AppDatabase {
 
   AppDatabase._() : super(_openConnection());
 
+  // 用于测试的构造函数
+  AppDatabase.forTest(DatabaseConnection connection) : super(connection);
+
   static AppDatabase get instance {
     _instance ??= AppDatabase._();
     return _instance!;

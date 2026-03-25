@@ -3165,6 +3165,827 @@ class GrammarQuestionsCompanion extends UpdateCompanion<GrammarQuestionData> {
   }
 }
 
+class $ReadingPassagesTable extends ReadingPassages
+    with TableInfo<$ReadingPassagesTable, ReadingPassageData> {
+  @override
+  final GeneratedDatabase attachedDatabase;
+  final String? _alias;
+  $ReadingPassagesTable(this.attachedDatabase, [this._alias]);
+  static const VerificationMeta _idMeta = const VerificationMeta('id');
+  @override
+  late final GeneratedColumn<String> id = GeneratedColumn<String>(
+      'id', aliasedName, false,
+      type: DriftSqlType.string, requiredDuringInsert: true);
+  static const VerificationMeta _titleMeta = const VerificationMeta('title');
+  @override
+  late final GeneratedColumn<String> title = GeneratedColumn<String>(
+      'title', aliasedName, false,
+      type: DriftSqlType.string, requiredDuringInsert: true);
+  static const VerificationMeta _contentMeta =
+      const VerificationMeta('content');
+  @override
+  late final GeneratedColumn<String> content = GeneratedColumn<String>(
+      'content', aliasedName, false,
+      type: DriftSqlType.string, requiredDuringInsert: true);
+  static const VerificationMeta _categoryMeta =
+      const VerificationMeta('category');
+  @override
+  late final GeneratedColumn<String> category = GeneratedColumn<String>(
+      'category', aliasedName, false,
+      type: DriftSqlType.string, requiredDuringInsert: true);
+  static const VerificationMeta _difficultyMeta =
+      const VerificationMeta('difficulty');
+  @override
+  late final GeneratedColumn<int> difficulty = GeneratedColumn<int>(
+      'difficulty', aliasedName, false,
+      type: DriftSqlType.int,
+      requiredDuringInsert: false,
+      defaultValue: const Constant(1));
+  static const VerificationMeta _wordCountMeta =
+      const VerificationMeta('wordCount');
+  @override
+  late final GeneratedColumn<int> wordCount = GeneratedColumn<int>(
+      'word_count', aliasedName, false,
+      type: DriftSqlType.int,
+      requiredDuringInsert: false,
+      defaultValue: const Constant(0));
+  static const VerificationMeta _sourceMeta = const VerificationMeta('source');
+  @override
+  late final GeneratedColumn<String> source = GeneratedColumn<String>(
+      'source', aliasedName, true,
+      type: DriftSqlType.string, requiredDuringInsert: false);
+  @override
+  List<GeneratedColumn> get $columns =>
+      [id, title, content, category, difficulty, wordCount, source];
+  @override
+  String get aliasedName => _alias ?? actualTableName;
+  @override
+  String get actualTableName => $name;
+  static const String $name = 'reading_passages';
+  @override
+  VerificationContext validateIntegrity(Insertable<ReadingPassageData> instance,
+      {bool isInserting = false}) {
+    final context = VerificationContext();
+    final data = instance.toColumns(true);
+    if (data.containsKey('id')) {
+      context.handle(_idMeta, id.isAcceptableOrUnknown(data['id']!, _idMeta));
+    } else if (isInserting) {
+      context.missing(_idMeta);
+    }
+    if (data.containsKey('title')) {
+      context.handle(
+          _titleMeta, title.isAcceptableOrUnknown(data['title']!, _titleMeta));
+    } else if (isInserting) {
+      context.missing(_titleMeta);
+    }
+    if (data.containsKey('content')) {
+      context.handle(_contentMeta,
+          content.isAcceptableOrUnknown(data['content']!, _contentMeta));
+    } else if (isInserting) {
+      context.missing(_contentMeta);
+    }
+    if (data.containsKey('category')) {
+      context.handle(_categoryMeta,
+          category.isAcceptableOrUnknown(data['category']!, _categoryMeta));
+    } else if (isInserting) {
+      context.missing(_categoryMeta);
+    }
+    if (data.containsKey('difficulty')) {
+      context.handle(
+          _difficultyMeta,
+          difficulty.isAcceptableOrUnknown(
+              data['difficulty']!, _difficultyMeta));
+    }
+    if (data.containsKey('word_count')) {
+      context.handle(_wordCountMeta,
+          wordCount.isAcceptableOrUnknown(data['word_count']!, _wordCountMeta));
+    }
+    if (data.containsKey('source')) {
+      context.handle(_sourceMeta,
+          source.isAcceptableOrUnknown(data['source']!, _sourceMeta));
+    }
+    return context;
+  }
+
+  @override
+  Set<GeneratedColumn> get $primaryKey => {id};
+  @override
+  ReadingPassageData map(Map<String, dynamic> data, {String? tablePrefix}) {
+    final effectivePrefix = tablePrefix != null ? '$tablePrefix.' : '';
+    return ReadingPassageData(
+      id: attachedDatabase.typeMapping
+          .read(DriftSqlType.string, data['${effectivePrefix}id'])!,
+      title: attachedDatabase.typeMapping
+          .read(DriftSqlType.string, data['${effectivePrefix}title'])!,
+      content: attachedDatabase.typeMapping
+          .read(DriftSqlType.string, data['${effectivePrefix}content'])!,
+      category: attachedDatabase.typeMapping
+          .read(DriftSqlType.string, data['${effectivePrefix}category'])!,
+      difficulty: attachedDatabase.typeMapping
+          .read(DriftSqlType.int, data['${effectivePrefix}difficulty'])!,
+      wordCount: attachedDatabase.typeMapping
+          .read(DriftSqlType.int, data['${effectivePrefix}word_count'])!,
+      source: attachedDatabase.typeMapping
+          .read(DriftSqlType.string, data['${effectivePrefix}source']),
+    );
+  }
+
+  @override
+  $ReadingPassagesTable createAlias(String alias) {
+    return $ReadingPassagesTable(attachedDatabase, alias);
+  }
+}
+
+class ReadingPassageData extends DataClass
+    implements Insertable<ReadingPassageData> {
+  final String id;
+  final String title;
+  final String content;
+  final String category;
+  final int difficulty;
+  final int wordCount;
+  final String? source;
+  const ReadingPassageData(
+      {required this.id,
+      required this.title,
+      required this.content,
+      required this.category,
+      required this.difficulty,
+      required this.wordCount,
+      this.source});
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    map['id'] = Variable<String>(id);
+    map['title'] = Variable<String>(title);
+    map['content'] = Variable<String>(content);
+    map['category'] = Variable<String>(category);
+    map['difficulty'] = Variable<int>(difficulty);
+    map['word_count'] = Variable<int>(wordCount);
+    if (!nullToAbsent || source != null) {
+      map['source'] = Variable<String>(source);
+    }
+    return map;
+  }
+
+  ReadingPassagesCompanion toCompanion(bool nullToAbsent) {
+    return ReadingPassagesCompanion(
+      id: Value(id),
+      title: Value(title),
+      content: Value(content),
+      category: Value(category),
+      difficulty: Value(difficulty),
+      wordCount: Value(wordCount),
+      source:
+          source == null && nullToAbsent ? const Value.absent() : Value(source),
+    );
+  }
+
+  factory ReadingPassageData.fromJson(Map<String, dynamic> json,
+      {ValueSerializer? serializer}) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return ReadingPassageData(
+      id: serializer.fromJson<String>(json['id']),
+      title: serializer.fromJson<String>(json['title']),
+      content: serializer.fromJson<String>(json['content']),
+      category: serializer.fromJson<String>(json['category']),
+      difficulty: serializer.fromJson<int>(json['difficulty']),
+      wordCount: serializer.fromJson<int>(json['wordCount']),
+      source: serializer.fromJson<String?>(json['source']),
+    );
+  }
+  @override
+  Map<String, dynamic> toJson({ValueSerializer? serializer}) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return <String, dynamic>{
+      'id': serializer.toJson<String>(id),
+      'title': serializer.toJson<String>(title),
+      'content': serializer.toJson<String>(content),
+      'category': serializer.toJson<String>(category),
+      'difficulty': serializer.toJson<int>(difficulty),
+      'wordCount': serializer.toJson<int>(wordCount),
+      'source': serializer.toJson<String?>(source),
+    };
+  }
+
+  ReadingPassageData copyWith(
+          {String? id,
+          String? title,
+          String? content,
+          String? category,
+          int? difficulty,
+          int? wordCount,
+          Value<String?> source = const Value.absent()}) =>
+      ReadingPassageData(
+        id: id ?? this.id,
+        title: title ?? this.title,
+        content: content ?? this.content,
+        category: category ?? this.category,
+        difficulty: difficulty ?? this.difficulty,
+        wordCount: wordCount ?? this.wordCount,
+        source: source.present ? source.value : this.source,
+      );
+  ReadingPassageData copyWithCompanion(ReadingPassagesCompanion data) {
+    return ReadingPassageData(
+      id: data.id.present ? data.id.value : this.id,
+      title: data.title.present ? data.title.value : this.title,
+      content: data.content.present ? data.content.value : this.content,
+      category: data.category.present ? data.category.value : this.category,
+      difficulty:
+          data.difficulty.present ? data.difficulty.value : this.difficulty,
+      wordCount: data.wordCount.present ? data.wordCount.value : this.wordCount,
+      source: data.source.present ? data.source.value : this.source,
+    );
+  }
+
+  @override
+  String toString() {
+    return (StringBuffer('ReadingPassageData(')
+          ..write('id: $id, ')
+          ..write('title: $title, ')
+          ..write('content: $content, ')
+          ..write('category: $category, ')
+          ..write('difficulty: $difficulty, ')
+          ..write('wordCount: $wordCount, ')
+          ..write('source: $source')
+          ..write(')'))
+        .toString();
+  }
+
+  @override
+  int get hashCode =>
+      Object.hash(id, title, content, category, difficulty, wordCount, source);
+  @override
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      (other is ReadingPassageData &&
+          other.id == this.id &&
+          other.title == this.title &&
+          other.content == this.content &&
+          other.category == this.category &&
+          other.difficulty == this.difficulty &&
+          other.wordCount == this.wordCount &&
+          other.source == this.source);
+}
+
+class ReadingPassagesCompanion extends UpdateCompanion<ReadingPassageData> {
+  final Value<String> id;
+  final Value<String> title;
+  final Value<String> content;
+  final Value<String> category;
+  final Value<int> difficulty;
+  final Value<int> wordCount;
+  final Value<String?> source;
+  final Value<int> rowid;
+  const ReadingPassagesCompanion({
+    this.id = const Value.absent(),
+    this.title = const Value.absent(),
+    this.content = const Value.absent(),
+    this.category = const Value.absent(),
+    this.difficulty = const Value.absent(),
+    this.wordCount = const Value.absent(),
+    this.source = const Value.absent(),
+    this.rowid = const Value.absent(),
+  });
+  ReadingPassagesCompanion.insert({
+    required String id,
+    required String title,
+    required String content,
+    required String category,
+    this.difficulty = const Value.absent(),
+    this.wordCount = const Value.absent(),
+    this.source = const Value.absent(),
+    this.rowid = const Value.absent(),
+  })  : id = Value(id),
+        title = Value(title),
+        content = Value(content),
+        category = Value(category);
+  static Insertable<ReadingPassageData> custom({
+    Expression<String>? id,
+    Expression<String>? title,
+    Expression<String>? content,
+    Expression<String>? category,
+    Expression<int>? difficulty,
+    Expression<int>? wordCount,
+    Expression<String>? source,
+    Expression<int>? rowid,
+  }) {
+    return RawValuesInsertable({
+      if (id != null) 'id': id,
+      if (title != null) 'title': title,
+      if (content != null) 'content': content,
+      if (category != null) 'category': category,
+      if (difficulty != null) 'difficulty': difficulty,
+      if (wordCount != null) 'word_count': wordCount,
+      if (source != null) 'source': source,
+      if (rowid != null) 'rowid': rowid,
+    });
+  }
+
+  ReadingPassagesCompanion copyWith(
+      {Value<String>? id,
+      Value<String>? title,
+      Value<String>? content,
+      Value<String>? category,
+      Value<int>? difficulty,
+      Value<int>? wordCount,
+      Value<String?>? source,
+      Value<int>? rowid}) {
+    return ReadingPassagesCompanion(
+      id: id ?? this.id,
+      title: title ?? this.title,
+      content: content ?? this.content,
+      category: category ?? this.category,
+      difficulty: difficulty ?? this.difficulty,
+      wordCount: wordCount ?? this.wordCount,
+      source: source ?? this.source,
+      rowid: rowid ?? this.rowid,
+    );
+  }
+
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    if (id.present) {
+      map['id'] = Variable<String>(id.value);
+    }
+    if (title.present) {
+      map['title'] = Variable<String>(title.value);
+    }
+    if (content.present) {
+      map['content'] = Variable<String>(content.value);
+    }
+    if (category.present) {
+      map['category'] = Variable<String>(category.value);
+    }
+    if (difficulty.present) {
+      map['difficulty'] = Variable<int>(difficulty.value);
+    }
+    if (wordCount.present) {
+      map['word_count'] = Variable<int>(wordCount.value);
+    }
+    if (source.present) {
+      map['source'] = Variable<String>(source.value);
+    }
+    if (rowid.present) {
+      map['rowid'] = Variable<int>(rowid.value);
+    }
+    return map;
+  }
+
+  @override
+  String toString() {
+    return (StringBuffer('ReadingPassagesCompanion(')
+          ..write('id: $id, ')
+          ..write('title: $title, ')
+          ..write('content: $content, ')
+          ..write('category: $category, ')
+          ..write('difficulty: $difficulty, ')
+          ..write('wordCount: $wordCount, ')
+          ..write('source: $source, ')
+          ..write('rowid: $rowid')
+          ..write(')'))
+        .toString();
+  }
+}
+
+class $ReadingQuestionsTable extends ReadingQuestions
+    with TableInfo<$ReadingQuestionsTable, ReadingQuestionData> {
+  @override
+  final GeneratedDatabase attachedDatabase;
+  final String? _alias;
+  $ReadingQuestionsTable(this.attachedDatabase, [this._alias]);
+  static const VerificationMeta _idMeta = const VerificationMeta('id');
+  @override
+  late final GeneratedColumn<String> id = GeneratedColumn<String>(
+      'id', aliasedName, false,
+      type: DriftSqlType.string, requiredDuringInsert: true);
+  static const VerificationMeta _passageIdMeta =
+      const VerificationMeta('passageId');
+  @override
+  late final GeneratedColumn<String> passageId = GeneratedColumn<String>(
+      'passage_id', aliasedName, false,
+      type: DriftSqlType.string, requiredDuringInsert: true);
+  static const VerificationMeta _questionNumberMeta =
+      const VerificationMeta('questionNumber');
+  @override
+  late final GeneratedColumn<int> questionNumber = GeneratedColumn<int>(
+      'question_number', aliasedName, false,
+      type: DriftSqlType.int, requiredDuringInsert: true);
+  static const VerificationMeta _typeMeta = const VerificationMeta('type');
+  @override
+  late final GeneratedColumn<String> type = GeneratedColumn<String>(
+      'type', aliasedName, false,
+      type: DriftSqlType.string, requiredDuringInsert: true);
+  static const VerificationMeta _questionMeta =
+      const VerificationMeta('question');
+  @override
+  late final GeneratedColumn<String> question = GeneratedColumn<String>(
+      'question', aliasedName, false,
+      type: DriftSqlType.string, requiredDuringInsert: true);
+  static const VerificationMeta _optionsMeta =
+      const VerificationMeta('options');
+  @override
+  late final GeneratedColumn<String> options = GeneratedColumn<String>(
+      'options', aliasedName, false,
+      type: DriftSqlType.string, requiredDuringInsert: true);
+  static const VerificationMeta _answerMeta = const VerificationMeta('answer');
+  @override
+  late final GeneratedColumn<String> answer = GeneratedColumn<String>(
+      'answer', aliasedName, false,
+      type: DriftSqlType.string, requiredDuringInsert: true);
+  static const VerificationMeta _explanationMeta =
+      const VerificationMeta('explanation');
+  @override
+  late final GeneratedColumn<String> explanation = GeneratedColumn<String>(
+      'explanation', aliasedName, true,
+      type: DriftSqlType.string, requiredDuringInsert: false);
+  @override
+  List<GeneratedColumn> get $columns => [
+        id,
+        passageId,
+        questionNumber,
+        type,
+        question,
+        options,
+        answer,
+        explanation
+      ];
+  @override
+  String get aliasedName => _alias ?? actualTableName;
+  @override
+  String get actualTableName => $name;
+  static const String $name = 'reading_questions';
+  @override
+  VerificationContext validateIntegrity(
+      Insertable<ReadingQuestionData> instance,
+      {bool isInserting = false}) {
+    final context = VerificationContext();
+    final data = instance.toColumns(true);
+    if (data.containsKey('id')) {
+      context.handle(_idMeta, id.isAcceptableOrUnknown(data['id']!, _idMeta));
+    } else if (isInserting) {
+      context.missing(_idMeta);
+    }
+    if (data.containsKey('passage_id')) {
+      context.handle(_passageIdMeta,
+          passageId.isAcceptableOrUnknown(data['passage_id']!, _passageIdMeta));
+    } else if (isInserting) {
+      context.missing(_passageIdMeta);
+    }
+    if (data.containsKey('question_number')) {
+      context.handle(
+          _questionNumberMeta,
+          questionNumber.isAcceptableOrUnknown(
+              data['question_number']!, _questionNumberMeta));
+    } else if (isInserting) {
+      context.missing(_questionNumberMeta);
+    }
+    if (data.containsKey('type')) {
+      context.handle(
+          _typeMeta, type.isAcceptableOrUnknown(data['type']!, _typeMeta));
+    } else if (isInserting) {
+      context.missing(_typeMeta);
+    }
+    if (data.containsKey('question')) {
+      context.handle(_questionMeta,
+          question.isAcceptableOrUnknown(data['question']!, _questionMeta));
+    } else if (isInserting) {
+      context.missing(_questionMeta);
+    }
+    if (data.containsKey('options')) {
+      context.handle(_optionsMeta,
+          options.isAcceptableOrUnknown(data['options']!, _optionsMeta));
+    } else if (isInserting) {
+      context.missing(_optionsMeta);
+    }
+    if (data.containsKey('answer')) {
+      context.handle(_answerMeta,
+          answer.isAcceptableOrUnknown(data['answer']!, _answerMeta));
+    } else if (isInserting) {
+      context.missing(_answerMeta);
+    }
+    if (data.containsKey('explanation')) {
+      context.handle(
+          _explanationMeta,
+          explanation.isAcceptableOrUnknown(
+              data['explanation']!, _explanationMeta));
+    }
+    return context;
+  }
+
+  @override
+  Set<GeneratedColumn> get $primaryKey => {id};
+  @override
+  ReadingQuestionData map(Map<String, dynamic> data, {String? tablePrefix}) {
+    final effectivePrefix = tablePrefix != null ? '$tablePrefix.' : '';
+    return ReadingQuestionData(
+      id: attachedDatabase.typeMapping
+          .read(DriftSqlType.string, data['${effectivePrefix}id'])!,
+      passageId: attachedDatabase.typeMapping
+          .read(DriftSqlType.string, data['${effectivePrefix}passage_id'])!,
+      questionNumber: attachedDatabase.typeMapping
+          .read(DriftSqlType.int, data['${effectivePrefix}question_number'])!,
+      type: attachedDatabase.typeMapping
+          .read(DriftSqlType.string, data['${effectivePrefix}type'])!,
+      question: attachedDatabase.typeMapping
+          .read(DriftSqlType.string, data['${effectivePrefix}question'])!,
+      options: attachedDatabase.typeMapping
+          .read(DriftSqlType.string, data['${effectivePrefix}options'])!,
+      answer: attachedDatabase.typeMapping
+          .read(DriftSqlType.string, data['${effectivePrefix}answer'])!,
+      explanation: attachedDatabase.typeMapping
+          .read(DriftSqlType.string, data['${effectivePrefix}explanation']),
+    );
+  }
+
+  @override
+  $ReadingQuestionsTable createAlias(String alias) {
+    return $ReadingQuestionsTable(attachedDatabase, alias);
+  }
+}
+
+class ReadingQuestionData extends DataClass
+    implements Insertable<ReadingQuestionData> {
+  final String id;
+  final String passageId;
+  final int questionNumber;
+  final String type;
+  final String question;
+  final String options;
+  final String answer;
+  final String? explanation;
+  const ReadingQuestionData(
+      {required this.id,
+      required this.passageId,
+      required this.questionNumber,
+      required this.type,
+      required this.question,
+      required this.options,
+      required this.answer,
+      this.explanation});
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    map['id'] = Variable<String>(id);
+    map['passage_id'] = Variable<String>(passageId);
+    map['question_number'] = Variable<int>(questionNumber);
+    map['type'] = Variable<String>(type);
+    map['question'] = Variable<String>(question);
+    map['options'] = Variable<String>(options);
+    map['answer'] = Variable<String>(answer);
+    if (!nullToAbsent || explanation != null) {
+      map['explanation'] = Variable<String>(explanation);
+    }
+    return map;
+  }
+
+  ReadingQuestionsCompanion toCompanion(bool nullToAbsent) {
+    return ReadingQuestionsCompanion(
+      id: Value(id),
+      passageId: Value(passageId),
+      questionNumber: Value(questionNumber),
+      type: Value(type),
+      question: Value(question),
+      options: Value(options),
+      answer: Value(answer),
+      explanation: explanation == null && nullToAbsent
+          ? const Value.absent()
+          : Value(explanation),
+    );
+  }
+
+  factory ReadingQuestionData.fromJson(Map<String, dynamic> json,
+      {ValueSerializer? serializer}) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return ReadingQuestionData(
+      id: serializer.fromJson<String>(json['id']),
+      passageId: serializer.fromJson<String>(json['passageId']),
+      questionNumber: serializer.fromJson<int>(json['questionNumber']),
+      type: serializer.fromJson<String>(json['type']),
+      question: serializer.fromJson<String>(json['question']),
+      options: serializer.fromJson<String>(json['options']),
+      answer: serializer.fromJson<String>(json['answer']),
+      explanation: serializer.fromJson<String?>(json['explanation']),
+    );
+  }
+  @override
+  Map<String, dynamic> toJson({ValueSerializer? serializer}) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return <String, dynamic>{
+      'id': serializer.toJson<String>(id),
+      'passageId': serializer.toJson<String>(passageId),
+      'questionNumber': serializer.toJson<int>(questionNumber),
+      'type': serializer.toJson<String>(type),
+      'question': serializer.toJson<String>(question),
+      'options': serializer.toJson<String>(options),
+      'answer': serializer.toJson<String>(answer),
+      'explanation': serializer.toJson<String?>(explanation),
+    };
+  }
+
+  ReadingQuestionData copyWith(
+          {String? id,
+          String? passageId,
+          int? questionNumber,
+          String? type,
+          String? question,
+          String? options,
+          String? answer,
+          Value<String?> explanation = const Value.absent()}) =>
+      ReadingQuestionData(
+        id: id ?? this.id,
+        passageId: passageId ?? this.passageId,
+        questionNumber: questionNumber ?? this.questionNumber,
+        type: type ?? this.type,
+        question: question ?? this.question,
+        options: options ?? this.options,
+        answer: answer ?? this.answer,
+        explanation: explanation.present ? explanation.value : this.explanation,
+      );
+  ReadingQuestionData copyWithCompanion(ReadingQuestionsCompanion data) {
+    return ReadingQuestionData(
+      id: data.id.present ? data.id.value : this.id,
+      passageId: data.passageId.present ? data.passageId.value : this.passageId,
+      questionNumber: data.questionNumber.present
+          ? data.questionNumber.value
+          : this.questionNumber,
+      type: data.type.present ? data.type.value : this.type,
+      question: data.question.present ? data.question.value : this.question,
+      options: data.options.present ? data.options.value : this.options,
+      answer: data.answer.present ? data.answer.value : this.answer,
+      explanation:
+          data.explanation.present ? data.explanation.value : this.explanation,
+    );
+  }
+
+  @override
+  String toString() {
+    return (StringBuffer('ReadingQuestionData(')
+          ..write('id: $id, ')
+          ..write('passageId: $passageId, ')
+          ..write('questionNumber: $questionNumber, ')
+          ..write('type: $type, ')
+          ..write('question: $question, ')
+          ..write('options: $options, ')
+          ..write('answer: $answer, ')
+          ..write('explanation: $explanation')
+          ..write(')'))
+        .toString();
+  }
+
+  @override
+  int get hashCode => Object.hash(id, passageId, questionNumber, type, question,
+      options, answer, explanation);
+  @override
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      (other is ReadingQuestionData &&
+          other.id == this.id &&
+          other.passageId == this.passageId &&
+          other.questionNumber == this.questionNumber &&
+          other.type == this.type &&
+          other.question == this.question &&
+          other.options == this.options &&
+          other.answer == this.answer &&
+          other.explanation == this.explanation);
+}
+
+class ReadingQuestionsCompanion extends UpdateCompanion<ReadingQuestionData> {
+  final Value<String> id;
+  final Value<String> passageId;
+  final Value<int> questionNumber;
+  final Value<String> type;
+  final Value<String> question;
+  final Value<String> options;
+  final Value<String> answer;
+  final Value<String?> explanation;
+  final Value<int> rowid;
+  const ReadingQuestionsCompanion({
+    this.id = const Value.absent(),
+    this.passageId = const Value.absent(),
+    this.questionNumber = const Value.absent(),
+    this.type = const Value.absent(),
+    this.question = const Value.absent(),
+    this.options = const Value.absent(),
+    this.answer = const Value.absent(),
+    this.explanation = const Value.absent(),
+    this.rowid = const Value.absent(),
+  });
+  ReadingQuestionsCompanion.insert({
+    required String id,
+    required String passageId,
+    required int questionNumber,
+    required String type,
+    required String question,
+    required String options,
+    required String answer,
+    this.explanation = const Value.absent(),
+    this.rowid = const Value.absent(),
+  })  : id = Value(id),
+        passageId = Value(passageId),
+        questionNumber = Value(questionNumber),
+        type = Value(type),
+        question = Value(question),
+        options = Value(options),
+        answer = Value(answer);
+  static Insertable<ReadingQuestionData> custom({
+    Expression<String>? id,
+    Expression<String>? passageId,
+    Expression<int>? questionNumber,
+    Expression<String>? type,
+    Expression<String>? question,
+    Expression<String>? options,
+    Expression<String>? answer,
+    Expression<String>? explanation,
+    Expression<int>? rowid,
+  }) {
+    return RawValuesInsertable({
+      if (id != null) 'id': id,
+      if (passageId != null) 'passage_id': passageId,
+      if (questionNumber != null) 'question_number': questionNumber,
+      if (type != null) 'type': type,
+      if (question != null) 'question': question,
+      if (options != null) 'options': options,
+      if (answer != null) 'answer': answer,
+      if (explanation != null) 'explanation': explanation,
+      if (rowid != null) 'rowid': rowid,
+    });
+  }
+
+  ReadingQuestionsCompanion copyWith(
+      {Value<String>? id,
+      Value<String>? passageId,
+      Value<int>? questionNumber,
+      Value<String>? type,
+      Value<String>? question,
+      Value<String>? options,
+      Value<String>? answer,
+      Value<String?>? explanation,
+      Value<int>? rowid}) {
+    return ReadingQuestionsCompanion(
+      id: id ?? this.id,
+      passageId: passageId ?? this.passageId,
+      questionNumber: questionNumber ?? this.questionNumber,
+      type: type ?? this.type,
+      question: question ?? this.question,
+      options: options ?? this.options,
+      answer: answer ?? this.answer,
+      explanation: explanation ?? this.explanation,
+      rowid: rowid ?? this.rowid,
+    );
+  }
+
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    if (id.present) {
+      map['id'] = Variable<String>(id.value);
+    }
+    if (passageId.present) {
+      map['passage_id'] = Variable<String>(passageId.value);
+    }
+    if (questionNumber.present) {
+      map['question_number'] = Variable<int>(questionNumber.value);
+    }
+    if (type.present) {
+      map['type'] = Variable<String>(type.value);
+    }
+    if (question.present) {
+      map['question'] = Variable<String>(question.value);
+    }
+    if (options.present) {
+      map['options'] = Variable<String>(options.value);
+    }
+    if (answer.present) {
+      map['answer'] = Variable<String>(answer.value);
+    }
+    if (explanation.present) {
+      map['explanation'] = Variable<String>(explanation.value);
+    }
+    if (rowid.present) {
+      map['rowid'] = Variable<int>(rowid.value);
+    }
+    return map;
+  }
+
+  @override
+  String toString() {
+    return (StringBuffer('ReadingQuestionsCompanion(')
+          ..write('id: $id, ')
+          ..write('passageId: $passageId, ')
+          ..write('questionNumber: $questionNumber, ')
+          ..write('type: $type, ')
+          ..write('question: $question, ')
+          ..write('options: $options, ')
+          ..write('answer: $answer, ')
+          ..write('explanation: $explanation, ')
+          ..write('rowid: $rowid')
+          ..write(')'))
+        .toString();
+  }
+}
+
 abstract class _$AppDatabase extends GeneratedDatabase {
   _$AppDatabase(QueryExecutor e) : super(e);
   $AppDatabaseManager get managers => $AppDatabaseManager(this);
@@ -3177,6 +3998,10 @@ abstract class _$AppDatabase extends GeneratedDatabase {
   late final $DailyStatsTable dailyStats = $DailyStatsTable(this);
   late final $GrammarQuestionsTable grammarQuestions =
       $GrammarQuestionsTable(this);
+  late final $ReadingPassagesTable readingPassages =
+      $ReadingPassagesTable(this);
+  late final $ReadingQuestionsTable readingQuestions =
+      $ReadingQuestionsTable(this);
   @override
   Iterable<TableInfo<Table, Object?>> get allTables =>
       allSchemaEntities.whereType<TableInfo<Table, Object?>>();
@@ -3188,7 +4013,9 @@ abstract class _$AppDatabase extends GeneratedDatabase {
         masteryStates,
         wrongItems,
         dailyStats,
-        grammarQuestions
+        grammarQuestions,
+        readingPassages,
+        readingQuestions
       ];
 }
 
@@ -4735,6 +5562,431 @@ typedef $$GrammarQuestionsTableProcessedTableManager = ProcessedTableManager<
     ),
     GrammarQuestionData,
     PrefetchHooks Function()>;
+typedef $$ReadingPassagesTableCreateCompanionBuilder = ReadingPassagesCompanion
+    Function({
+  required String id,
+  required String title,
+  required String content,
+  required String category,
+  Value<int> difficulty,
+  Value<int> wordCount,
+  Value<String?> source,
+  Value<int> rowid,
+});
+typedef $$ReadingPassagesTableUpdateCompanionBuilder = ReadingPassagesCompanion
+    Function({
+  Value<String> id,
+  Value<String> title,
+  Value<String> content,
+  Value<String> category,
+  Value<int> difficulty,
+  Value<int> wordCount,
+  Value<String?> source,
+  Value<int> rowid,
+});
+
+class $$ReadingPassagesTableFilterComposer
+    extends Composer<_$AppDatabase, $ReadingPassagesTable> {
+  $$ReadingPassagesTableFilterComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnFilters<String> get id => $composableBuilder(
+      column: $table.id, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<String> get title => $composableBuilder(
+      column: $table.title, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<String> get content => $composableBuilder(
+      column: $table.content, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<String> get category => $composableBuilder(
+      column: $table.category, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<int> get difficulty => $composableBuilder(
+      column: $table.difficulty, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<int> get wordCount => $composableBuilder(
+      column: $table.wordCount, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<String> get source => $composableBuilder(
+      column: $table.source, builder: (column) => ColumnFilters(column));
+}
+
+class $$ReadingPassagesTableOrderingComposer
+    extends Composer<_$AppDatabase, $ReadingPassagesTable> {
+  $$ReadingPassagesTableOrderingComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnOrderings<String> get id => $composableBuilder(
+      column: $table.id, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<String> get title => $composableBuilder(
+      column: $table.title, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<String> get content => $composableBuilder(
+      column: $table.content, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<String> get category => $composableBuilder(
+      column: $table.category, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<int> get difficulty => $composableBuilder(
+      column: $table.difficulty, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<int> get wordCount => $composableBuilder(
+      column: $table.wordCount, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<String> get source => $composableBuilder(
+      column: $table.source, builder: (column) => ColumnOrderings(column));
+}
+
+class $$ReadingPassagesTableAnnotationComposer
+    extends Composer<_$AppDatabase, $ReadingPassagesTable> {
+  $$ReadingPassagesTableAnnotationComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  GeneratedColumn<String> get id =>
+      $composableBuilder(column: $table.id, builder: (column) => column);
+
+  GeneratedColumn<String> get title =>
+      $composableBuilder(column: $table.title, builder: (column) => column);
+
+  GeneratedColumn<String> get content =>
+      $composableBuilder(column: $table.content, builder: (column) => column);
+
+  GeneratedColumn<String> get category =>
+      $composableBuilder(column: $table.category, builder: (column) => column);
+
+  GeneratedColumn<int> get difficulty => $composableBuilder(
+      column: $table.difficulty, builder: (column) => column);
+
+  GeneratedColumn<int> get wordCount =>
+      $composableBuilder(column: $table.wordCount, builder: (column) => column);
+
+  GeneratedColumn<String> get source =>
+      $composableBuilder(column: $table.source, builder: (column) => column);
+}
+
+class $$ReadingPassagesTableTableManager extends RootTableManager<
+    _$AppDatabase,
+    $ReadingPassagesTable,
+    ReadingPassageData,
+    $$ReadingPassagesTableFilterComposer,
+    $$ReadingPassagesTableOrderingComposer,
+    $$ReadingPassagesTableAnnotationComposer,
+    $$ReadingPassagesTableCreateCompanionBuilder,
+    $$ReadingPassagesTableUpdateCompanionBuilder,
+    (
+      ReadingPassageData,
+      BaseReferences<_$AppDatabase, $ReadingPassagesTable, ReadingPassageData>
+    ),
+    ReadingPassageData,
+    PrefetchHooks Function()> {
+  $$ReadingPassagesTableTableManager(
+      _$AppDatabase db, $ReadingPassagesTable table)
+      : super(TableManagerState(
+          db: db,
+          table: table,
+          createFilteringComposer: () =>
+              $$ReadingPassagesTableFilterComposer($db: db, $table: table),
+          createOrderingComposer: () =>
+              $$ReadingPassagesTableOrderingComposer($db: db, $table: table),
+          createComputedFieldComposer: () =>
+              $$ReadingPassagesTableAnnotationComposer($db: db, $table: table),
+          updateCompanionCallback: ({
+            Value<String> id = const Value.absent(),
+            Value<String> title = const Value.absent(),
+            Value<String> content = const Value.absent(),
+            Value<String> category = const Value.absent(),
+            Value<int> difficulty = const Value.absent(),
+            Value<int> wordCount = const Value.absent(),
+            Value<String?> source = const Value.absent(),
+            Value<int> rowid = const Value.absent(),
+          }) =>
+              ReadingPassagesCompanion(
+            id: id,
+            title: title,
+            content: content,
+            category: category,
+            difficulty: difficulty,
+            wordCount: wordCount,
+            source: source,
+            rowid: rowid,
+          ),
+          createCompanionCallback: ({
+            required String id,
+            required String title,
+            required String content,
+            required String category,
+            Value<int> difficulty = const Value.absent(),
+            Value<int> wordCount = const Value.absent(),
+            Value<String?> source = const Value.absent(),
+            Value<int> rowid = const Value.absent(),
+          }) =>
+              ReadingPassagesCompanion.insert(
+            id: id,
+            title: title,
+            content: content,
+            category: category,
+            difficulty: difficulty,
+            wordCount: wordCount,
+            source: source,
+            rowid: rowid,
+          ),
+          withReferenceMapper: (p0) => p0
+              .map((e) => (e.readTable(table), BaseReferences(db, table, e)))
+              .toList(),
+          prefetchHooksCallback: null,
+        ));
+}
+
+typedef $$ReadingPassagesTableProcessedTableManager = ProcessedTableManager<
+    _$AppDatabase,
+    $ReadingPassagesTable,
+    ReadingPassageData,
+    $$ReadingPassagesTableFilterComposer,
+    $$ReadingPassagesTableOrderingComposer,
+    $$ReadingPassagesTableAnnotationComposer,
+    $$ReadingPassagesTableCreateCompanionBuilder,
+    $$ReadingPassagesTableUpdateCompanionBuilder,
+    (
+      ReadingPassageData,
+      BaseReferences<_$AppDatabase, $ReadingPassagesTable, ReadingPassageData>
+    ),
+    ReadingPassageData,
+    PrefetchHooks Function()>;
+typedef $$ReadingQuestionsTableCreateCompanionBuilder
+    = ReadingQuestionsCompanion Function({
+  required String id,
+  required String passageId,
+  required int questionNumber,
+  required String type,
+  required String question,
+  required String options,
+  required String answer,
+  Value<String?> explanation,
+  Value<int> rowid,
+});
+typedef $$ReadingQuestionsTableUpdateCompanionBuilder
+    = ReadingQuestionsCompanion Function({
+  Value<String> id,
+  Value<String> passageId,
+  Value<int> questionNumber,
+  Value<String> type,
+  Value<String> question,
+  Value<String> options,
+  Value<String> answer,
+  Value<String?> explanation,
+  Value<int> rowid,
+});
+
+class $$ReadingQuestionsTableFilterComposer
+    extends Composer<_$AppDatabase, $ReadingQuestionsTable> {
+  $$ReadingQuestionsTableFilterComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnFilters<String> get id => $composableBuilder(
+      column: $table.id, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<String> get passageId => $composableBuilder(
+      column: $table.passageId, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<int> get questionNumber => $composableBuilder(
+      column: $table.questionNumber,
+      builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<String> get type => $composableBuilder(
+      column: $table.type, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<String> get question => $composableBuilder(
+      column: $table.question, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<String> get options => $composableBuilder(
+      column: $table.options, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<String> get answer => $composableBuilder(
+      column: $table.answer, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<String> get explanation => $composableBuilder(
+      column: $table.explanation, builder: (column) => ColumnFilters(column));
+}
+
+class $$ReadingQuestionsTableOrderingComposer
+    extends Composer<_$AppDatabase, $ReadingQuestionsTable> {
+  $$ReadingQuestionsTableOrderingComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnOrderings<String> get id => $composableBuilder(
+      column: $table.id, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<String> get passageId => $composableBuilder(
+      column: $table.passageId, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<int> get questionNumber => $composableBuilder(
+      column: $table.questionNumber,
+      builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<String> get type => $composableBuilder(
+      column: $table.type, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<String> get question => $composableBuilder(
+      column: $table.question, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<String> get options => $composableBuilder(
+      column: $table.options, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<String> get answer => $composableBuilder(
+      column: $table.answer, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<String> get explanation => $composableBuilder(
+      column: $table.explanation, builder: (column) => ColumnOrderings(column));
+}
+
+class $$ReadingQuestionsTableAnnotationComposer
+    extends Composer<_$AppDatabase, $ReadingQuestionsTable> {
+  $$ReadingQuestionsTableAnnotationComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  GeneratedColumn<String> get id =>
+      $composableBuilder(column: $table.id, builder: (column) => column);
+
+  GeneratedColumn<String> get passageId =>
+      $composableBuilder(column: $table.passageId, builder: (column) => column);
+
+  GeneratedColumn<int> get questionNumber => $composableBuilder(
+      column: $table.questionNumber, builder: (column) => column);
+
+  GeneratedColumn<String> get type =>
+      $composableBuilder(column: $table.type, builder: (column) => column);
+
+  GeneratedColumn<String> get question =>
+      $composableBuilder(column: $table.question, builder: (column) => column);
+
+  GeneratedColumn<String> get options =>
+      $composableBuilder(column: $table.options, builder: (column) => column);
+
+  GeneratedColumn<String> get answer =>
+      $composableBuilder(column: $table.answer, builder: (column) => column);
+
+  GeneratedColumn<String> get explanation => $composableBuilder(
+      column: $table.explanation, builder: (column) => column);
+}
+
+class $$ReadingQuestionsTableTableManager extends RootTableManager<
+    _$AppDatabase,
+    $ReadingQuestionsTable,
+    ReadingQuestionData,
+    $$ReadingQuestionsTableFilterComposer,
+    $$ReadingQuestionsTableOrderingComposer,
+    $$ReadingQuestionsTableAnnotationComposer,
+    $$ReadingQuestionsTableCreateCompanionBuilder,
+    $$ReadingQuestionsTableUpdateCompanionBuilder,
+    (
+      ReadingQuestionData,
+      BaseReferences<_$AppDatabase, $ReadingQuestionsTable, ReadingQuestionData>
+    ),
+    ReadingQuestionData,
+    PrefetchHooks Function()> {
+  $$ReadingQuestionsTableTableManager(
+      _$AppDatabase db, $ReadingQuestionsTable table)
+      : super(TableManagerState(
+          db: db,
+          table: table,
+          createFilteringComposer: () =>
+              $$ReadingQuestionsTableFilterComposer($db: db, $table: table),
+          createOrderingComposer: () =>
+              $$ReadingQuestionsTableOrderingComposer($db: db, $table: table),
+          createComputedFieldComposer: () =>
+              $$ReadingQuestionsTableAnnotationComposer($db: db, $table: table),
+          updateCompanionCallback: ({
+            Value<String> id = const Value.absent(),
+            Value<String> passageId = const Value.absent(),
+            Value<int> questionNumber = const Value.absent(),
+            Value<String> type = const Value.absent(),
+            Value<String> question = const Value.absent(),
+            Value<String> options = const Value.absent(),
+            Value<String> answer = const Value.absent(),
+            Value<String?> explanation = const Value.absent(),
+            Value<int> rowid = const Value.absent(),
+          }) =>
+              ReadingQuestionsCompanion(
+            id: id,
+            passageId: passageId,
+            questionNumber: questionNumber,
+            type: type,
+            question: question,
+            options: options,
+            answer: answer,
+            explanation: explanation,
+            rowid: rowid,
+          ),
+          createCompanionCallback: ({
+            required String id,
+            required String passageId,
+            required int questionNumber,
+            required String type,
+            required String question,
+            required String options,
+            required String answer,
+            Value<String?> explanation = const Value.absent(),
+            Value<int> rowid = const Value.absent(),
+          }) =>
+              ReadingQuestionsCompanion.insert(
+            id: id,
+            passageId: passageId,
+            questionNumber: questionNumber,
+            type: type,
+            question: question,
+            options: options,
+            answer: answer,
+            explanation: explanation,
+            rowid: rowid,
+          ),
+          withReferenceMapper: (p0) => p0
+              .map((e) => (e.readTable(table), BaseReferences(db, table, e)))
+              .toList(),
+          prefetchHooksCallback: null,
+        ));
+}
+
+typedef $$ReadingQuestionsTableProcessedTableManager = ProcessedTableManager<
+    _$AppDatabase,
+    $ReadingQuestionsTable,
+    ReadingQuestionData,
+    $$ReadingQuestionsTableFilterComposer,
+    $$ReadingQuestionsTableOrderingComposer,
+    $$ReadingQuestionsTableAnnotationComposer,
+    $$ReadingQuestionsTableCreateCompanionBuilder,
+    $$ReadingQuestionsTableUpdateCompanionBuilder,
+    (
+      ReadingQuestionData,
+      BaseReferences<_$AppDatabase, $ReadingQuestionsTable, ReadingQuestionData>
+    ),
+    ReadingQuestionData,
+    PrefetchHooks Function()>;
 
 class $AppDatabaseManager {
   final _$AppDatabase _db;
@@ -4753,4 +6005,8 @@ class $AppDatabaseManager {
       $$DailyStatsTableTableManager(_db, _db.dailyStats);
   $$GrammarQuestionsTableTableManager get grammarQuestions =>
       $$GrammarQuestionsTableTableManager(_db, _db.grammarQuestions);
+  $$ReadingPassagesTableTableManager get readingPassages =>
+      $$ReadingPassagesTableTableManager(_db, _db.readingPassages);
+  $$ReadingQuestionsTableTableManager get readingQuestions =>
+      $$ReadingQuestionsTableTableManager(_db, _db.readingQuestions);
 }
